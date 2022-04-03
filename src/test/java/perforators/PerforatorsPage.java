@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PerforatorsPage extends BasePage {
 
-    String PerforatorsBuyBlockOnPage = "//div[@class='catalog-item-wrap']//span[@class='price']";
+    private String PerforatorsBuyBlockOnPage = "//div[@class='catalog-item-wrap']//span[@class='price']";
 
     public PerforatorsPage checkPricePresenceForPerforators(int pageCount) {
         for (int i = 0; i < pageCount; i++) {

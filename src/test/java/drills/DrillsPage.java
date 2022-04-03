@@ -8,8 +8,8 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DrillsPage extends BasePage {
-    private SelenideElement oldPrice = $x("//div[@class='price-values']//span[@class='price-old']"),
-            actualPrice = $x("//div[@class='price']");
+    private String oldPrice = "//div[@class='price-values']//span[@class='price-old']",
+            actualPrice = "//div[@class='price']";
 
     public void checkDrillsWithDiscountToHaveOldAndNewPrices(int amountsOfDrillsToCheck) {
         int counter = 0;
@@ -32,8 +32,8 @@ public class DrillsPage extends BasePage {
     private void presenceOfOldAndNewPriceForOneDrillModel(int amountOfChosenGoods, ElementsCollection presentDrills) {
         for (int i = 0; i < Math.min(amountOfChosenGoods, presentDrills.size()); i++) {
             presentDrills.get(i).scrollTo().click();
-            oldPrice.shouldHave(Condition.text("грн"));
-            actualPrice.shouldHave(Condition.text("грн"));
+            $x(oldPrice).shouldHave(Condition.text("грн"));
+            $x(actualPrice).shouldHave(Condition.text("грн"));
             back();
         }
     }
